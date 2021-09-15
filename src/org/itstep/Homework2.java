@@ -76,10 +76,10 @@ public class Homework2 {
         /*Задание 10. Найти и вывести на консоль минимальное из двух чисел
         M и N, используя только побитовые и арифметические операции (без использования условного оператора).*/
         byte n10 = 0b1011111;
-        byte m10 = 0b1011101;
-        if (n10 > m10) System.out.println("Task10: Минимальное число " + Integer.toBinaryString(m10));
-        else System.out.println("Task10: Минимальное число " + Integer.toBinaryString(n10));
-        if (n10 == m10) System.out.println("Task10: Числа равны");
+        byte m10 = 0b1111111;
+        while (n10 > m10) {System.out.println("Task10: Минимальное число " + Integer.toBinaryString(m10)); break;}
+        while (n10 < m10) {System.out.println("Task10: Минимальное число " + Integer.toBinaryString(n10)); break;}
+        while (n10 == m10) {System.out.println("Task10: Числа равны"); break;}
 
         /*Задание 11. Посчитать и вывести на консоль количество единичных
         битов в числе N. Вывести на консоль исходное число в двоичном виде и результат.*/
