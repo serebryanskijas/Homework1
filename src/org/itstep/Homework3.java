@@ -1,7 +1,7 @@
 package org.itstep;
 
 import java.util.Arrays;
-import java.util.Random;
+//import java.util.Random;
 
 public class Homework3 {
     static double[] arr = new double[10];
@@ -12,9 +12,10 @@ public class Homework3 {
         calculations();
 
         System.out.printf("%n********** Задание№2 (Вариант 4.10) **********%n");
+        //double[] arr = new double[]{1.1, 2.2, 3.3, 1.2}; // для проверки
         System.out.println();
         fillRandom();
-        double n = 11.12;
+        double n = 12.34;
         System.out.println("Случайный массив из 10 элементов - "+Arrays.toString(arr));
         arrayTask(n, arr);
 
@@ -27,7 +28,7 @@ public class Homework3 {
         int num = 1;
         boolean znak = true;
         while (Math.abs(a) > eps) {
-            a = chislitel(x, 2 * num - 1) / znaminatel(2 * num + 1);
+            a = stepen(x, 2 * num - 1) / factorial(2 * num + 1);
             if (!znak) {sum -=a; znak=true;}
             else {sum+=a; znak = false;}
             num++;
@@ -37,7 +38,7 @@ public class Homework3 {
         System.out.printf("Контрольная проверка " + res + "%nЗначение из цикла    " + sum + "%n");
     }
 
-    static double chislitel(double a, double n) {
+    static double stepen(double a, double n) {
         double result = 1;
         for (int i = 1; i <= n; i++) {
             result *= a;
@@ -45,7 +46,7 @@ public class Homework3 {
         return result;
     }
 
-    static double znaminatel(double n) {
+    static double factorial(double n) {
         double result = 1;
         for (int i = 1; i <= n; i++) {
             result *= i;
@@ -55,31 +56,31 @@ public class Homework3 {
 
 
     public static void arrayTask(double num, double[] arr) {
-
+// Найти 2 числа из массива, среднее арифметическое которых будет ближе по значению к заданному числу n.
         double[] arr1 = new double[2];
         double aver;
+        double ogranichenie = 0.1;
         for (int i = 0; i < arr.length; i++) {
-            for (int j = i + 1; j < arr.length; j++) {
+            for (int j = i+1; j < arr.length; j++) {
                 aver = (arr[i] + arr[j]) / 2; // среднее арифметическое значение
-                if ((aver - num) == 0 || Math.abs(aver - num) <= 0.5) {
-                    /*если разница ср.арифм. и заданного числа равна нулю,
-                    то присваиваем новому массиву значения элементов из заполненного массива.
-                    или если разница меньше или равна 0,5 то присваиваем новому массиву значения элементов из заполненного массива.
-                    если бы смог заполнить массив значениями с плавающей точкой рандомно, тогда в условии или можно было бы поставить < 0.2 например
-                    т.к. не из целых чисел среднее арифметическое было бы разным значением, а не как сейчас либо целое, либо число с 0,5*/
+                if ((aver - num) == 0 || Math.abs(aver - num) < ogranichenie) {
+                    /*если разница ср.арифм. и заданного числа равна нулю
+                    или разница меньше 0,1, то присваиваем новому массиву значения элементов из заполненного массива.*/
                     arr1[0] = arr[i];
                     arr1[1] = arr[j];
                 }
+                else ogranichenie +=0.1; //увеличение ограничения на 0,1 в случае если разница больше
             }
         }
-        System.out.printf("Заданное число = %.2f%nСреднее арифметическое найденных чисел= %.2f%nЧисло №1 = %.1f, Число №2 = %.1f", num, (arr1[0] + arr1[1]) / 2, arr1[0], arr1[1]);
+        System.out.printf("Заданное число = %.2f%nЧисло №1 = %.4f, Число №2 = %.4f%nСреднее арифметическое найденных чисел = %.4f%n", num, arr1[0], arr1[1], (arr1[0] + arr1[1]) / 2);
         }
 
     public static void fillRandom() {
-        //Заполнение массива случайными числами от 5 до 25 !!!(не получилось заполнить значениями типа double)!!!
-        Random random = new Random();
+        //Заполнение массива случайными числами до 30 !!!
+        //Random random = new Random();
+        //double[] arr = new double[10]; // для проверки
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = random.nextInt(20)+5;
+            arr[i] = (Math.random() * 30);
         }
     }
 }
