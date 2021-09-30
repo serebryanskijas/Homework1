@@ -15,8 +15,8 @@ public class Homework3 {
         //double[] arr = new double[]{1.1, 2.2, 3.3, 1.2}; // для проверки
         System.out.println();
         fillRandom();
-        double n = 12.34;
-        System.out.println("Случайный массив из 10 элементов - "+Arrays.toString(arr));
+        double n = 14.75;
+        System.out.println("Случайный массив из 10 элементов - " + Arrays.toString(arr));
         arrayTask(n, arr);
 
     }
@@ -29,8 +29,13 @@ public class Homework3 {
         boolean znak = true;
         while (Math.abs(a) > eps) {
             a = stepen(x, 2 * num - 1) / factorial(2 * num + 1);
-            if (!znak) {sum -=a; znak=true;}
-            else {sum+=a; znak = false;}
+            if (!znak) {
+                sum -= a;
+                znak = true;
+            } else {
+                sum += a;
+                znak = false;
+            }
             num++;
         }
         double res = (x - Math.sin(x)) / Math.pow(x, 2);
@@ -59,21 +64,26 @@ public class Homework3 {
 // Найти 2 числа из массива, среднее арифметическое которых будет ближе по значению к заданному числу n.
         double[] arr1 = new double[2];
         double aver;
-        double ogranichenie = 0.1;
+        double avg = Math.abs(num-(arr[0] + arr[1]) / 2.0);
         for (int i = 0; i < arr.length; i++) {
             for (int j = i+1; j < arr.length; j++) {
-                aver = (arr[i] + arr[j]) / 2; // среднее арифметическое значение
-                if ((aver - num) == 0 || Math.abs(aver - num) < ogranichenie) {
-                    /*если разница ср.арифм. и заданного числа равна нулю
-                    или разница меньше 0,1, то присваиваем новому массиву значения элементов из заполненного массива.*/
+                aver = (arr[i] + arr[j]) / 2.0; // среднее арифметическое значение
+                if (avg >= Math.abs(num-aver)) {
+                    avg = Math.abs(num-(arr[i] + arr[j]) / 2.0);
                     arr1[0] = arr[i];
                     arr1[1] = arr[j];
                 }
-                else ogranichenie +=0.1; //увеличение ограничения на 0,1 в случае если разница больше
+                /*if ((aver - num) == 0 || Math.abs(aver - num) < ogranichenie) {
+                 *//*если разница ср.арифм. и заданного числа равна нулю
+                    или разница меньше 0,1, то присваиваем новому массиву значения элементов из заполненного массива.*//*
+                    arr1[0] = arr[i];
+                    arr1[1] = arr[j];
+                }
+                else ogranichenie +=0.1;*/ //увеличение ограничения на 0,1 в случае если разница больше
             }
         }
         System.out.printf("Заданное число = %.2f%nЧисло №1 = %.4f, Число №2 = %.4f%nСреднее арифметическое найденных чисел = %.4f%n", num, arr1[0], arr1[1], (arr1[0] + arr1[1]) / 2);
-        }
+    }
 
     public static void fillRandom() {
         //Заполнение массива случайными числами до 30 !!!
