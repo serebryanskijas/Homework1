@@ -21,10 +21,9 @@ public class Homework4 {
                 sum *= i;
                 System.out.print(sum + " ");
             }
-            count++;
-            if (count>4) { //Тут я подвис, не доходит как счетчик уменьшить...
-                count-=2;
-            }
+            if (i<4) count++;
+            else count--;
+
             System.out.println();
         }
 
