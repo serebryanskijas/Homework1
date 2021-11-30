@@ -5,27 +5,27 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Car implements Comparable<Car> {
-    protected String model = ""; //Модель авто
+    protected String brand = ""; //Модель авто
     private final Date dateOfManufacture; // Дата выпуска
     protected String sDate;
     protected double price; // Стоимость авто
     protected double averageFuelConsumption; // Средний расход топлива л/100 км
-    private final int maxSpeed; // Максимальная скорость км/ч
+    private final int speed; // Скорость км/ч
     protected CarColors color; //Цвет авто
 
 
-    Car(String sDate, double price, double averageFuelConsumption, int maxSpeed, CarColors color) throws ParseException {
+    Car(String sDate, double price, double averageFuelConsumption, int speed, CarColors color) throws ParseException {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
         this.dateOfManufacture = dateFormat.parse(sDate);
         this.sDate = sDate;
         this.price = price;
         this.color = color;
-        this.maxSpeed = maxSpeed;
+        this.speed = speed;
         this.averageFuelConsumption = averageFuelConsumption;
     }
 
-    public String getModel() {
-        return model;
+    public String getBrand() {
+        return brand;
     }
 
     public Date getDateOfManufacture() {
@@ -44,8 +44,8 @@ public class Car implements Comparable<Car> {
         return color;
     }
 
-    public int getMaxSpeed() {
-        return maxSpeed;
+    public int getSpeed() {
+        return speed;
     }
 
     @Override

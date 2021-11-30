@@ -2,22 +2,22 @@ package homework7;
 
 import java.text.ParseException;
 
-enum RenaultModels {
-    SYMBOL, SCENIC, LOGAN, KADJAR, MEGANE
+enum AudiModels {
+    A4, A6, Q5, Q7, TT
 }
 
-public class Renault extends Car {
+public class Audi extends Car {
 
-    private RenaultModels model;
+    private AudiModels model;
 
-    Renault(String sDate, double price, double averageFuelConsumption, RenaultModels model, int maxSpeed,
+    Audi(String sDate, double price, double averageFuelConsumption, AudiModels model, int maxSpeed,
             CarColors color) throws ParseException {
         super(sDate, price, averageFuelConsumption, maxSpeed, color);
-        this.brand = "Renault";
+        this.brand = "Audi";
         this.model = model;
     }
 
-    public RenaultModels getModel() {
+    public AudiModels getModel() {
         return model;
     }
 
