@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="io.github.openfeign.feign.jackson" type="repository">
+    <properties maven-id="io.github.openfeign:feign-jackson:11.7" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/io/github/openfeign/feign-jackson/11.7/feign-jackson-11.7.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/io/github/openfeign/feign-core/11.7/feign-core-11.7.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.13.0/jackson-databind-2.13.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-annotations/2.13.0/jackson-annotations-2.13.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-core/2.13.0/jackson-core-2.13.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
