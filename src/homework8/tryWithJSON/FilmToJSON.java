@@ -24,8 +24,8 @@ public class FilmToJSON {
     public static void main(String[] args) throws IOException {
 
         ArrayList list = new ArrayList();
-        Films film1 = new Films( "Die Hard", 1988, 4.8);
-        Films film2 = new Films( "Mask", 1994, 4.9);
+        Films film1 = new Films("Action", "Die Hard", 1988, 4.8);
+        Films film2 = new Films("Comedy", "Mask", 1994, 4.9);
         list.add(film1);
         list.add(film2);
         FilmToJSON film = new FilmToJSON();
@@ -78,7 +78,7 @@ public class FilmToJSON {
     }
 
     private Films toObject(Map<String, Object> map) {
-        return new Films(((String) map.get("name")), ((Integer) map.get("year")),
+        return new Films(((String) map.get("genre")), ((String) map.get("name")), ((Integer) map.get("year")),
                 ((Double) map.get("rating")));
     }
 
