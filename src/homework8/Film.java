@@ -1,8 +1,6 @@
 package homework8;
 
-import java.util.Map;
-
-public class Films {
+public class Film {
 
     private String genre;
 
@@ -12,11 +10,17 @@ public class Films {
 
     private double rating;
 
-    public Films(String genre, String name, int year, double rating) {
+    public Film(String genre, String name, int year, double rating) {
         this.genre = genre;
         this.name = name;
         this.year = year;
         this.rating = rating;
+    }
+
+    public void printAllCollectionDeque() {
+
+        System.out.printf("Movie: |%s| \"%s\", %d, rating is - %.1f \n", getGenre(), getName(),
+                getYear(), getRating());
     }
 
     public String getGenre() {
@@ -50,7 +54,5 @@ public class Films {
     public void setRating(double rating) {
         this.rating = rating;
     }
-
-
 
 }

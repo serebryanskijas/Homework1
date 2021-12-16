@@ -1,7 +1,7 @@
 package homework8.tryWithJSON;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import homework8.Films;
+import homework8.Film;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -24,12 +24,12 @@ public class FilmToJSON {
     public static void main(String[] args) throws IOException {
 
         ArrayList list = new ArrayList();
-        Films film1 = new Films("Action", "Die Hard", 1988, 4.8);
-        Films film2 = new Films("Comedy", "Mask", 1994, 4.9);
+        Film film1 = new Film("Action", "Die Hard", 1988, 4.8);
+        Film film2 = new Film("Comedy", "Mask", 1994, 4.9);
         list.add(film1);
         list.add(film2);
         FilmToJSON film = new FilmToJSON();
-        //film.filmToJSON(list);
+        film.filmToJSON(list);
         film.readFilmListJSON();
 
     }
@@ -54,7 +54,7 @@ public class FilmToJSON {
 
     @SuppressWarnings("unchecked")
     public void readFilmListJSON() throws IOException {
-        List<Films> filmsList = new ArrayList<>();
+        List<Film> filmsList = new ArrayList<>();
         try {
             FileReader file = new FileReader("src/homework8/data/filmData.json");
             String sb = new String(Files.readAllBytes(Paths.get("src/homework8/data/filmData.json")));
@@ -77,8 +77,8 @@ public class FilmToJSON {
 
     }
 
-    private Films toObject(Map<String, Object> map) {
-        return new Films(((String) map.get("genre")), ((String) map.get("name")), ((Integer) map.get("year")),
+    private Film toObject(Map<String, Object> map) {
+        return new Film(((String) map.get("genre")), ((String) map.get("name")), ((Integer) map.get("year")),
                 ((Double) map.get("rating")));
     }
 
