@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal data</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    
+    <ul id="navbar">
+        <li><a href="#">Главная</a></li>
+        <li><a href="#">Новости</a></li>
+        <li><a href="#">Контакты</a></li>
+        <li><a href="#">О нас</a></li>
+    </ul>
+
+    <div class="container">
+        <div class="avatar-upload">
+            <div class="avatar-edit">
+                <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                <label for="imageUpload"></label>
+            </div>
+            <div class="avatar-preview">
+                <div id="imagePreview" style="background-image: url(img/addFoto.png); title: ">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/uploadFoto.js"></script>
+
+    <form action="">
+        <h4>Fill in your information</h4>
+        <p>Your name <i style="color: red;">*</i> <input name="name" required placeholder="Insert your name"></p>
+        <p>Your surname <i style="color: red;">*</i>  <input name="surname" required placeholder="Insert your surname"></p>
+        <p>Date of Birth <input name="dateOfBirth" type="date" /></p>
+        <p>Your email <input name="email" type="email" /></p>
+
+        
+       </form>
+
+
+    <div class="gender" id="gender">
+        <h4>Choose gender</h4>
+        <p><input type="radio" name="choose_gend" value="1">Male</p>
+        <p><input type="radio" name="choose_gend" value="2">Female</p>
+    </div>
+
+
+    <input name="button" type="image" src="/img/button_image.png" width="130" height="42" />
+      
+
+     
+    
+</body>
+</html>
